@@ -42,3 +42,8 @@ Para que tu acceso directo luzca como una aplicación real con el logo de Gemini
 2. Haz clic derecho sobre el acceso directo que creaste en el escritorio y selecciona **Propiedades**.
 3. En la pestaña *Acceso directo*, haz clic en el botón **Cambiar icono...**
 4. Busca y selecciona tu archivo `gemini.ico`, haz clic en **Aceptar** y luego en **Aplicar**.
+---
+
+## 📜 Créditos y Agradecimientos
+* Este proyecto está basado en el excelente trabajo de [N1xUser/OpenAI-HTML-Client](https://github.com/N1xUser/OpenAI-HTML-Client).
+* Modificado, adaptado a la API oficial de Google Gemini, optimizado y estructurado por [M4ty66](https://github.com/M4ty66).
