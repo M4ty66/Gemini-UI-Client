@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <title>Gemini UI Client</title>
+	  <link rel="stylesheet" href="css/style.css">
+	  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	  <script>
+		 window.MathJax = {
+			 tex: {
+				 inlineMath: [['$', '$'], ['\\(', '\\)']],
+				 displayMath: [['$$', '$$'], ['\\[', '\\]']],
+				 processEscapes: true,
+				 processEnvironments: true
+			 },
+			 options: {
+				 skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'a']
+			 }
+		 };
+	  </script>
+	</head>
+	<body>
+	  <div class="app-container" id="appContainer">
+		 <div class="sidebar" id="sidebar">
+			<div class="sidebar-header">
+				<h2>💬 Gemini UI</h2>
+				<button class="new-chat-btn" id="newChatBtn">
+				<span>+</span> Chat Nuevo
+				</button>
+			</div>
+			<div class="sessions-section">
+				<h3>Chats</h3>
+				<div class="sessions-list" id="sessionsList"></div>
+			</div>
+			<div class="sidebar-footer">
+				<div class="session-controls">
+				  <input type="text" id="sessionNameInput" class="session-name-input" placeholder="Name this chat...">
+				  <div id="autoSaveIndicator" class="auto-save-indicator">
+					 <span>✔</span> Saved
+				  </div>
+				</div>
+				<div class="sidebar-actions">
+				  <button class="sidebar-action-btn" id="importAllBtn">Importar</button>
+				  <button class="sidebar-action-btn" id="exportAllBtn">Exportar</button>
+				  <button class="sidebar-action-btn delete" id="deleteAllBtn">Borrar Todo</button>
+				  <input type="file" id="importFileInput" style="display: none;" accept=".json">
+				</div>
+			</div>
+		 </div>
+		 <div class="sidebar-resizer" id="sidebarResizer"></div>
+		 <div class="main-content" id="mainContent">
+			<div class="chat-container">
+				<div class="config-section" id="configSection">
+				  <div class="header-controls">
+					 <button class="mobile-menu-toggle" id="mobileMenuToggle">
+					 <span></span>
+					 <span></span>
+					 <span></span>
+					 </button>
+					 <div class="main-config-area">
+						<div class="api-key-container">
+							 <div style="display: flex; gap: 8px; align-items: flex-end;">
+                               <!-- Cambiado a Gemini API Key -->
+                                <input type="password" class="api-key-input" placeholder="Introduce tu API Key de Gemini aquí..." id="apiKeyInput" style="flex: 1;">
+                                <button class="submit-key-btn" id="submitKeyBtn">Guardar Clave</button>
+							 </div>
+							 <div class="api-key-status" id="apiKeyStatus"></div>
+						</div>
+						<div class="main-controls" id="mainControls">
+							<select class="model-select" id="modelSelect">
+							  <option value="">Cargando models...</option>
+							</select>
+							<div class="action-buttons-group">
+							  <button class="top-btn" id="refreshModelsBtn" title="Refresh Models">🔄</button>
+							  <div class="streaming-toggle">
+								 <input type="checkbox" id="streamingCheckbox" class="checkbox" checked>
+								 <label for="streamingCheckbox">Stream</label>
+							  </div>
+							  <button class="top-btn" id="exportSessionBtn" title="Export Chat">📄</button>
+							</div>
+						</div>
+					 </div>
+				  </div>
+				  <div id="modelInfo" class="model-info">Select a model to see information</div>
+				</div>
+				<div class="chat-messages" id="chatMessages"></div>
+				<div class="typing-indicator" id="typingIndicator">
+				  <div class="typing-dots">Pensando...</div>
+				</div>
+				<div class="input-section">
+				  <div class="input-container">
+					 <div class="file-upload-container">
+						<div class="uploaded-files" id="uploadedFiles"></div>
+						<input type="file" class="file-input" id="fileInput" multiple>
+						<button class="icon-btn" id="fileUploadBtn" title="Attach Files">📎</button>
+						<button class="icon-btn" id="imageUploadBtn" title="Attach Images">🖼️</button>
+					 </div>
+					 <textarea class="message-input" id="messageInput" placeholder="Escribe tu Mensaje..." rows="1"></textarea>
+					 <div class="action-buttons">
+						<button class="icon-btn" id="clearButton" title="Clear Chat">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+							  <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+							</svg>
+						</button>
+						<button class="send-button" id="sendButton" title="Send Message">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+							  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+							</svg>
+						</button>
+					 </div>
+				  </div>
+				</div>
+			</div>
+		 </div>
+		 <div class="sidebar-overlay" id="sidebarOverlay"></div>
+	  </div>
+	  <script src="js/script.js"></script>
+	</body>
+</html>
+
